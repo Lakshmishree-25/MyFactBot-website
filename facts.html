@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Knowledge Points</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Cool Gray 50 */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for scrolling content */
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 1.5rem; /* More padding top/bottom */
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px; /* Wider container for content list */
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            border: 1px solid #e2e8f0; /* Subtle border */
+        }
+        .header {
+            text-align: center;
+            color: #1e293b; /* Slate 900 */
+            font-weight: 700;
+            font-size: 2.5rem; /* text-4xl */
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.5rem;
+        }
+        .subheader {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #334155; /* Slate 700 */
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem; /* Space between categories */
+        }
+        .subheader:first-of-type {
+            margin-top: 0; /* No top margin for the first subheader */
+        }
+        .fact-list {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr; /* Single column on small screens */
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .fact-list {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Two columns on larger screens */
+            }
+        }
+        .fact-item {
+            background-color: #f0f4f8; /* Light blue-gray for each fact item */
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+            color: #475569; /* Slate 600 */
+            line-height: 1.5;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column; /* Stack image and text */
+            align-items: center; /* Center content */
+            text-align: center;
+        }
+        .fact-item p {
+            font-style: italic; /* Maintain italic style for fact text */
+        }
+        .back-button-group {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        button {
+            background-color: #4f46e5; /* Indigo 600 */
+            color: white;
+            padding: 0.875rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #4338ca; /* Indigo 700 */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Comprehensive Knowledge Archive</h1>
+
+        <div class="knowledge-sections">
+            <h2 class="subheader">General Data Points</h2>
+            <ul id="generalFactsList" class="fact-list">
+                <!-- Facts will be populated here by JavaScript -->
+            </ul>
+
+            <h2 class="subheader">Zoological Data Points</h2>
+            <ul id="animalFactsList" class="fact-list">
+                <!-- Facts will be populated here by JavaScript -->
+            </ul>
+
+            <h2 class="subheader">Cosmic Data Points</h2>
+            <ul id="spaceFactsList" class="fact-list">
+                <!-- Facts will be populated here by JavaScript -->
+            </ul>
+
+            <h2 class="subheader">Historical Data Points</h2>
+            <ul id="historyFactsList" class="fact-list">
+                <!-- Facts will be populated here by JavaScript -->
+            </ul>
+        </div>
+
+        <div class="back-button-group">
+            <button onclick="window.location.href='index.html'">Return to Query Engine</button>
+        </div>
+    </div>
+
+    <script>
+        const generalFacts = [
+            "A group of owls is called a parliament.",
+            "Honey never spoils.",
+            "The shortest war in history lasted 38 to 45 minutes.",
+            "Octopuses have three hearts.",
+            "It is impossible for most people to lick their own elbow.",
+            "A jiffy is an actual unit of time: 1/100th of a second.",
+            "Cows have best friends."
+        ];
+
+        const animalFacts = [
+            "A snail can sleep for three years.",
+            "Butterflies taste with their feet.",
+            "The heart of a shrimp is in its head.",
+            "Starfish don't have brains.",
+            "A group of rhinos is called a crash.",
+            "Elephants are the only animals that can't jump."
+        ];
+
+        const spaceFacts = [
+            "One day on Venus is longer than one year on Venus.",
+            "There are more trees on Earth than stars in the Milky Way galaxy.",
+            "The highest mountain discovered is on Mars.",
+            "The largest known asteroid is Ceres, which is 945 km wide.",
+            "The Sun contains 99.86% of the mass in our solar system."
+        ];
+
+        const historyFacts = [
+            "The Great Wall of China is not visible from space with the naked eye.",
+            "The shortest war in history was between Britain and Zanzibar on August 27, 1896, lasting 38 minutes.",
+            "Ancient Egyptians slept on pillows made of stone.",
+            "The Roman Empire lasted for over 1000 years.",
+            "The yo-yo was originally a weapon in the Philippines."
+        ];
+
+        function populateFacts(factsArray, listElementId) {
+            const ul = document.getElementById(listElementId);
+            ul.innerHTML = ''; // Clear existing content
+            factsArray.forEach(factText => { // Changed 'fact' to 'factText'
+                const li = document.createElement('li');
+                li.className = 'fact-item';
+                const p = document.createElement('p');
+                p.textContent = factText; // Directly use factText
+                li.appendChild(p);
+                ul.appendChild(li);
+            });
+        }
+
+        // Populate facts on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateFacts(generalFacts, 'generalFactsList');
+            populateFacts(animalFacts, 'animalFactsList');
+            populateFacts(spaceFacts, 'spaceFactsList');
+            populateFacts(historyFacts, 'historyFactsList');
+        });
+    </script>
+</body>
+</html>
